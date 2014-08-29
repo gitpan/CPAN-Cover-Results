@@ -1,5 +1,5 @@
 package CPAN::Cover::Results::ReleaseIterator;
-$CPAN::Cover::Results::ReleaseIterator::VERSION = '0.01';
+$CPAN::Cover::Results::ReleaseIterator::VERSION = '0.02';
 use Moo;
 use autodie;
 use JSON qw/ decode_json /;

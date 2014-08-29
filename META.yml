@@ -1,5 +1,5 @@
 ---
-abstract: 'use CPAN::Cover::Results::ReleaseIterator;'
+abstract: 'get CPAN coverage test results from CPAN Cover service'
 author:
   - 'Neil Bowers <neilb@cpan.org>'
 build_requires:
@@ -25,4 +25,4 @@ requires:
 resources:
   homepage: https://github.com/neilbowers/CPAN-Cover-Results
   repository: https://github.com/neilbowers/CPAN-Cover-Results.git
-version: '0.01'
+version: '0.02'
