@@ -1,5 +1,5 @@
 package CPAN::Cover::Results::ReleaseIterator;
-$CPAN::Cover::Results::ReleaseIterator::VERSION = '0.02';
+$CPAN::Cover::Results::ReleaseIterator::VERSION = '0.03';
 use Moo;
 use autodie;
 use JSON qw/ decode_json /;
@@ -30,6 +30,8 @@ sub _build__keys
 
     foreach my $distname (sort { lc($a) cmp lc($b) } keys %$results_ref) {
         foreach my $version (sort keys %{ $results_ref->{$distname} }) {
+            next unless exists($results_ref->{$distname}{$version}{coverage}{total})
+                     && int(keys %{ $results_ref->{$distname}{$version}{coverage}{total} }) > 0;
             push(@$keypair_listref, [$distname, $version]);
         }
     }

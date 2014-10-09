@@ -1,5 +1,5 @@
 package CPAN::Cover::Results::Release;
-$CPAN::Cover::Results::Release::VERSION = '0.02';
+$CPAN::Cover::Results::Release::VERSION = '0.03';
 use Moo;
 
 has 'distname'   => ( is => 'ro' );

@@ -1,5 +1,5 @@
 package CPAN::Cover::Results;
-$CPAN::Cover::Results::VERSION = '0.02';
+$CPAN::Cover::Results::VERSION = '0.03';
 use CPAN::Cover::Results::ReleaseIterator;
 
 use 5.006;
@@ -10,7 +10,7 @@ with 'MooX::Role::CachedURL'
 
 has '+url' =>
     (
-        default => sub { 'http://cpancover.com/staging/cpancover.json' },
+        default => sub { 'http://cpancover.com/latest/cpancover.json.gz' },
     );
 
 sub release_iterator
@@ -30,12 +30,13 @@ CPAN::Cover::Results - get CPAN coverage test results from CPAN Cover service
 
  use CPAN::Cover::Results;
 
- my $iterator = CPAN::Cover::Results->new()->iterator();
+ my $iterator = CPAN::Cover::Results->new()->release_iterator();
 
  while (my $release = $iterator->next) {
      printf "%s (%s) : %.2f\n",
-            $release->distname, $dist->version,
-            $dist->total;
+            $release->distname,
+            $release->version,
+            $release->total;
  }
 
 =head1 DESCRIPTION
